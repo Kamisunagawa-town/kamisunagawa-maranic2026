@@ -7,12 +7,8 @@
 <meta name="description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。2026年10月10日(土)開催！">
 <style>
   :root{
-    --autumn:#c0392b;     /* 紅葉レッド */
-    --orange:#e67e22;     /* オレンジ */
-    --gold:#f1c40f;       /* 黄金 */
-    --dark:#3a2618;       /* こげ茶 */
-    --cream:#fdf6ec;      /* クリーム */
-    --green:#5a7d3c;      /* アクセントグリーン */
+    --autumn:#c0392b;--orange:#e67e22;--gold:#f1c40f;
+    --dark:#3a2618;--cream:#fdf6ec;--green:#5a7d3c;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--dark);line-height:1.8;background:var(--cream);}
@@ -26,13 +22,14 @@
   /* ヘッダー */
   header{position:sticky;top:0;background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:100;}
   .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;}
-  .nav .logo{font-weight:bold;color:var(--autumn);font-size:1.1rem;}
+  .nav .logo{display:flex;align-items:center;gap:8px;font-weight:bold;color:var(--autumn);font-size:1.1rem;}
+  .nav .logo img{height:36px;width:auto;}
   .nav .cta{background:var(--autumn);color:#fff;padding:10px 22px;border-radius:30px;font-weight:bold;}
 
   /* ヒーロー */
   .hero{
     background:linear-gradient(rgba(58,38,24,.45),rgba(58,38,24,.45)),
-    url('★ヒーロー画像URL.jpg') center/cover;
+    url('images/hero.jpg') center/cover;
     color:#fff;text-align:center;padding:120px 20px;
   }
   .hero .badge{display:inline-block;background:var(--gold);color:var(--dark);font-weight:bold;padding:6px 18px;border-radius:30px;margin-bottom:20px;}
@@ -46,11 +43,20 @@
   .intro{text-align:center;}
   .intro p{max-width:700px;margin:0 auto 20px;font-size:1.05rem;}
 
+  /* 動画セクション */
+  .movie{background:var(--dark);color:#fff;}
+  .movie h2{color:var(--gold);}
+  .movie .sub{color:var(--orange);}
+  .video-wrap{position:relative;width:100%;max-width:860px;margin:0 auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.4);}
+  .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .movie .caption{text-align:center;color:#ccc;margin-top:18px;font-size:.9rem;}
+
   /* 3つの魅力 */
   .features{background:#fff;}
   .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
-  .feature{text-align:center;padding:30px 20px;border-radius:16px;background:var(--cream);}
-  .feature .icon{font-size:3rem;margin-bottom:15px;}
+  .feature{text-align:center;border-radius:16px;background:var(--cream);overflow:hidden;}
+  .feature img{width:100%;height:180px;object-fit:cover;}
+  .feature .body{padding:24px 20px;}
   .feature h3{color:var(--orange);margin-bottom:10px;}
 
   /* コース */
@@ -66,7 +72,9 @@
   /* エイド */
   .aid{background:#fff;}
   .aid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px;}
-  .aid-card{background:var(--cream);border-radius:12px;padding:20px;text-align:center;}
+  .aid-card{background:var(--cream);border-radius:12px;overflow:hidden;text-align:center;}
+  .aid-card img{width:100%;height:120px;object-fit:cover;}
+  .aid-card .body{padding:14px 10px;}
   .aid-card .num{display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:var(--gold);color:var(--dark);font-weight:bold;margin-bottom:8px;}
   .food-note{text-align:center;background:var(--green);color:#fff;padding:20px;border-radius:12px;font-weight:bold;}
 
@@ -75,14 +83,16 @@
   .guests h2{color:var(--gold);}
   .guest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
   .guest{background:rgba(255,255,255,.07);border-radius:16px;padding:30px;text-align:center;}
-  .guest .ph{width:140px;height:140px;border-radius:50%;background:#555;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:#aaa;}
+  .guest img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin:0 auto 20px;}
   .guest h3{color:var(--gold);font-size:1.3rem;}
   .guest .role{font-size:.9rem;color:#ddd;margin-top:8px;}
 
   /* 特典 */
   .perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .perk{background:#fff;border-radius:16px;padding:30px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);border-top:5px solid var(--gold);}
-  .perk .icon{font-size:2.6rem;margin-bottom:12px;}
+  .perk{background:#fff;border-radius:16px;overflow:hidden;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);border-top:5px solid var(--gold);}
+  .perk img{width:100%;height:160px;object-fit:cover;}
+  .perk .body{padding:24px 20px;}
+  .perk .icon{font-size:2.2rem;margin-bottom:8px;}
 
   /* 概要表 */
   .info{background:#fff;}
@@ -119,13 +129,16 @@
 <!-- ヘッダー -->
 <header>
   <div class="nav">
-    <div class="logo">🍁 かみすながわ紅葉マラニック</div>
+    <div class="logo">
+      <img src="images/logo.png" alt="かみすながわ紅葉マラニック ロゴ">
+      <span>かみすながわ紅葉マラニック</span>
+    </div>
     <a href="#apply" class="cta">エントリー</a>
   </div>
 </header>
 
 <!-- ① ヒーロー -->
-<section class="hero" style="padding:120px 20px;">
+<section class="hero">
   <span class="badge">第4回開催！</span>
   <h1>かみすながわ<br>ぐるっと紅葉マラニック</h1>
   <p class="date">2026年10月10日(土) ｜ 雨天決行</p>
@@ -143,6 +156,22 @@
   地元の食材がならぶエイドと、ゴール後のパンケの湯が、頑張ったあなたを待っています。</p>
 </section>
 
+<!-- ★ 動画セクション(第2回大会) -->
+<section class="movie">
+  <div class="container">
+    <h2>第2回大会の様子を動画でチェック！</h2>
+    <p class="sub">~ 紅葉とグルメに包まれた、あの感動をもう一度 ~</p>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/ndUtPf6A5Rw"
+        title="第2回かみすながわぐるっと紅葉マラニック"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+    <p class="caption">▲ 2024年開催・第2回大会の公式映像。コースの雰囲気やエイドの様子がわかります。</p>
+  </div>
+</section>
+
 <!-- ③ 3つの魅力 -->
 <section class="features">
   <div class="container">
@@ -150,19 +179,25 @@
     <p class="sub">~ 紅葉 × グルメ × 温泉 ~</p>
     <div class="feature-grid">
       <div class="feature">
-        <div class="icon">🍁</div>
-        <h3>紅葉の絶景コース</h3>
-        <p>水源公園や日本庭園など、秋色に染まる上砂川の名所をめぐる、写真映え必至のコース。</p>
+        <img src="images/feature-autumn.jpg" alt="紅葉の絶景コース">
+        <div class="body">
+          <h3>🍁 紅葉の絶景コース</h3>
+          <p>水源公園や日本庭園など、秋色に染まる上砂川の名所をめぐる、写真映え必至のコース。</p>
+        </div>
       </div>
       <div class="feature">
-        <div class="icon">🍴</div>
-        <h3>食の天国・豪華エイド</h3>
-        <p>エゾシカロースト、ニジマス燻製、自家製カンパーニュなど。最大8か所の名物エイドで地元グルメを堪能。</p>
+        <img src="images/feature-food.jpg" alt="豪華エイド">
+        <div class="body">
+          <h3>🍴 食の天国・豪華エイド</h3>
+          <p>エゾシカロースト、ニジマス燻製、自家製カンパーニュなど。最大8か所の名物エイドで地元グルメを堪能。</p>
+        </div>
       </div>
       <div class="feature">
-        <div class="icon">♨️</div>
-        <h3>ゴール後の温泉</h3>
-        <p>発着点はパンケの湯。走ったあとは温泉でリフレッシュ。入浴券は参加費に含まれています。</p>
+        <img src="images/feature-onsen.jpg" alt="温泉">
+        <div class="body">
+          <h3>♨️ ゴール後の温泉</h3>
+          <p>発着点はパンケの湯。走ったあとは温泉でリフレッシュ。入浴券は参加費に含まれています。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -177,18 +212,9 @@
       <tr><th>コース</th><th>距離</th><th>スタート</th><th>定員</th><th>参加費(高校生以上/小中学生)</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="tag family">ファミリー</span></td>
-        <td>約7km</td><td>9:20</td><td>50名</td><td>4,000円 / 3,000円</td>
-      </tr>
-      <tr>
-        <td><span class="tag short">ショート</span></td>
-        <td>約13km</td><td>9:10</td><td>100名</td><td>4,000円 / 3,000円</td>
-      </tr>
-      <tr>
-        <td><span class="tag long">ロング</span></td>
-        <td>約23km</td><td>9:00</td><td>100名</td><td>5,000円 / 4,000円</td>
-      </tr>
+      <tr><td><span class="tag family">ファミリー</span></td><td>約7km</td><td>9:20</td><td>50名</td><td>4,000円 / 3,000円</td></tr>
+      <tr><td><span class="tag short">ショート</span></td><td>約13km</td><td>9:10</td><td>100名</td><td>4,000円 / 3,000円</td></tr>
+      <tr><td><span class="tag long">ロング</span></td><td>約23km</td><td>9:00</td><td>100名</td><td>5,000円 / 4,000円</td></tr>
     </tbody>
   </table>
   <p style="text-align:center;margin-top:15px;font-size:.9rem;">
@@ -203,14 +229,14 @@
     <h2>名物！地元グルメのエイドポイント</h2>
     <p class="sub">上砂川と周辺の「おいしい」をめぐる旅</p>
     <div class="aid-grid">
-      <div class="aid-card"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div></div>
-      <div class="aid-card"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div></div>
-      <div class="aid-card"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div></div>
-      <div class="aid-card"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div></div>
-      <div class="aid-card"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div></div>
-      <div class="aid-card"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div></div>
-      <div class="aid-card"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div></div>
-      <div class="aid-card"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div></div>
+      <div class="aid-card"><img src="images/aid/aid01.jpg" alt="水源公園"><div class="body"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid02.jpg" alt="日本庭園"><div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid03.jpg" alt="きまぐれ牧場"><div class="body"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid04.jpg" alt="鶉児童公園"><div class="body"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid05.jpg" alt="下鶉生活館"><div class="body"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid06.jpg" alt="まちの駅ふらっと"><div class="body"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid07.jpg" alt="かみすながわ炭鉱館"><div class="body"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div></div></div>
+      <div class="aid-card"><img src="images/aid/aid08.jpg" alt="パークゴルフ場"><div class="body"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div></div></div>
     </div>
     <div class="food-note">
       🍖 昨年の提供例：ニジマス燻製・自家製カンパーニュ・エゾシカロースト など<br>
@@ -226,12 +252,12 @@
     <p class="sub" style="color:#f1c40f;">豪華ゲストと一緒に走ろう！</p>
     <div class="guest-grid">
       <div class="guest">
-        <div class="ph">★写真</div>
+        <img src="images/guest-tanaka.jpg" alt="田中賢介氏">
         <h3>田中 賢介 氏</h3>
         <p class="role">学校法人 田中学園 理事長<br>兼 北海道日本ハムファイターズ<br>スペシャルアドバイザー</p>
       </div>
       <div class="guest">
-        <div class="ph">★写真</div>
+        <img src="images/guest-aman.jpg" alt="阿萬香織氏">
         <h3>阿萬 香織 氏</h3>
         <p class="role">株式会社65BASE 代表</p>
       </div>
@@ -245,19 +271,19 @@
   <p class="sub">頑張ったあなたへのご褒美</p>
   <div class="perks-grid">
     <div class="perk">
-      <div class="icon">👕</div>
-      <h3>記念Tシャツ</h3>
-      <p>第4回記念オリジナルTシャツをプレゼント。SS～XL、100～150cmから選べます。</p>
+      <img src="images/perk-tshirt.jpg" alt="記念Tシャツ">
+      <div class="body"><div class="icon">👕</div><h3>記念Tシャツ</h3>
+        <p>第4回記念オリジナルTシャツをプレゼント。SS～XL、100～150cmから選べます。</p></div>
     </div>
     <div class="perk">
-      <div class="icon">♨️</div>
-      <h3>温泉入浴券</h3>
-      <p>上砂川岳温泉パンケの湯の入浴券をプレゼント。走ったあとの温泉は格別です。</p>
+      <img src="images/feature-onsen.jpg" alt="温泉入浴券">
+      <div class="body"><div class="icon">♨️</div><h3>温泉入浴券</h3>
+        <p>上砂川岳温泉パンケの湯の入浴券をプレゼント。走ったあとの温泉は格別です。</p></div>
     </div>
     <div class="perk">
-      <div class="icon">🍜</div>
-      <h3>お蕎麦のお食事券</h3>
-      <p>ゴール後に楽しめるお蕎麦のお食事券をプレゼント(当日のみ有効)。</p>
+      <img src="images/feature-food.jpg" alt="お蕎麦のお食事券">
+      <div class="body"><div class="icon">🍜</div><h3>お蕎麦のお食事券</h3>
+        <p>ゴール後に楽しめるお蕎麦のお食事券をプレゼント(当日のみ有効)。</p></div>
     </div>
   </div>
 </section>
@@ -309,7 +335,6 @@
   </div>
 </footer>
 
-<!-- スムーズスクロール -->
 <script>
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
