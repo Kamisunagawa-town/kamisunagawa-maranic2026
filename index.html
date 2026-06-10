@@ -103,6 +103,17 @@
   .info-table th{background:var(--autumn);color:#fff;text-align:left;padding:16px;width:160px;vertical-align:top;}
   .info-table td{padding:16px;border-bottom:1px solid #e5d9c7;}
 
+  /* SNSセクション */
+  .sns{background:var(--cream);}
+  .sns-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
+  .sns-col{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  .sns-col h3{display:flex;align-items:center;gap:10px;margin-bottom:16px;font-size:1.2rem;}
+  .sns-col h3 .ic{font-size:1.5rem;}
+  .sns-follow{display:inline-block;margin-top:16px;padding:10px 24px;border-radius:30px;font-weight:bold;color:#fff;}
+  .sns-follow.fb{background:#1877f2;}
+  .sns-follow.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+  .sns-note{font-size:.85rem;color:#888;text-align:center;margin-top:24px;}
+
   /* 申込 */
   .apply{background:linear-gradient(135deg,var(--orange),var(--autumn));color:#fff;text-align:center;}
   .apply h2{color:#fff;}
@@ -121,6 +132,7 @@
     .feature-grid,.perks-grid{grid-template-columns:1fr;}
     .aid-grid{grid-template-columns:repeat(2,1fr);}
     .guest-grid{grid-template-columns:1fr;}
+    .sns-grid{grid-template-columns:1fr;}
     .nav .logo{font-size:.95rem;}
     .course-table{font-size:.85rem;}
     .course-table th,.course-table td{padding:10px 6px;}
@@ -134,7 +146,7 @@
   <div class="nav">
     <div class="logo">
       <img src="images/logo.png" alt="かみすながわ紅葉マラニック ロゴ">
-      <span>かみすながわぐるっと紅葉マラニック</span>
+      <span>かみすながわ紅葉マラニック</span>
     </div>
     <a href="#apply" class="cta">エントリー</a>
   </div>
@@ -293,7 +305,7 @@
         <p>上砂川岳温泉パンケの湯の入浴券をプレゼント。走ったあとの温泉は格別です。</p></div>
     </div>
     <div class="perk">
-      <img src="images/feature-soba.jpg" alt="お蕎麦のお食事券">
+      <img src="images/feature-food.jpg" alt="お蕎麦のお食事券">
       <div class="body"><div class="icon">🍜</div><h3>お蕎麦のお食事券</h3>
         <p>ゴール後に楽しめるお蕎麦のお食事券をプレゼント(当日のみ有効)。</p></div>
     </div>
@@ -320,19 +332,68 @@
   </div>
 </section>
 
-<!-- ⑨ 申込 -->
+<!-- ⑨ SNS最新情報セクション(A案:申込ボタンの少し上) -->
+<section class="sns">
+  <div class="container">
+    <h2>最新情報をチェック！</h2>
+    <p class="sub">大会の最新情報・お知らせは公式SNSで発信中</p>
+    <div class="sns-grid">
+
+      <!-- Instagram(外部ウィジェット利用) -->
+      <div class="sns-col">
+        <h3><span class="ic">📷</span> Instagram 最新投稿</h3>
+        <!-- ▼ SnapWidget等で発行したiframeコードに差し替え ▼ -->
+        <iframe src="★SnapWidgetで発行したURL"
+          class="snapwidget-widget"
+          allowtransparency="true" frameborder="0" scrolling="no"
+          style="border:none;overflow:hidden;width:100%;height:340px;">
+        </iframe>
+        <!-- ▲ ここまで ▲ -->
+        <div style="text-align:center;">
+          <a class="sns-follow ig" href="https://www.instagram.com/kamisunagawa_town/" target="_blank" rel="noopener">
+            Instagramをフォロー
+          </a>
+        </div>
+      </div>
+
+      <!-- Facebook(公式ページプラグイン) -->
+      <div class="sns-col">
+        <h3><span class="ic">📘</span> Facebook 最新情報</h3>
+        <div class="fb-page"
+          data-href="https://www.facebook.com/town.kamisunagawa/"
+          data-tabs="timeline"
+          data-width="500"
+          data-height="340"
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+          <a class="sns-follow fb" href="https://www.facebook.com/town.kamisunagawa/" target="_blank" rel="noopener">
+            Facebookをフォロー
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <p class="sns-note">※ 最新情報はSNSにて随時更新しています。フォローして最新情報をお見逃しなく！</p>
+  </div>
+</section>
+
+<!-- ⑩ 申込 -->
 <section class="apply" id="apply">
   <div class="container">
     <h2>エントリー</h2>
     <p>定員になり次第締め切ります。お申し込みはお早めに！</p>
-    <a href="https://www.sportsentry.ne.jp/" class="btn">WEBで申し込む</a>
+    <a href="★申込フォームURL" class="btn">WEBで申し込む</a>
     <div class="townmsg">
       🏠 <strong>上砂川町民の方</strong>は、役場企画課(0125-62-2223)へ直接お申し込みください。
     </div>
   </div>
 </section>
 
-<!-- ⑩ フッター -->
+<!-- ⑪ フッター -->
 <footer>
   <div class="container">
     <h4>主催</h4>
@@ -346,6 +407,12 @@
     <p class="copyright">※本ページの内容は予告なく一部変更となる場合があります。<br>© かみすながわマラニック実行委員会</p>
   </div>
 </footer>
+
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v19.0">
+</script>
 
 <script>
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
