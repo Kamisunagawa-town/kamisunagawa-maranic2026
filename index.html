@@ -117,8 +117,22 @@
   /* 申込 */
   .apply{background:linear-gradient(135deg,var(--orange),var(--autumn));color:#fff;text-align:center;}
   .apply h2{color:#fff;}
-  .apply .btn{background:#fff;color:var(--autumn);margin-top:10px;}
-  .apply .townmsg{margin-top:25px;background:rgba(255,255,255,.15);display:inline-block;padding:14px 24px;border-radius:12px;}
+  .apply .sub{color:#ffe8c7;}
+  .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:10px;text-align:left;}
+  .apply-card{background:#fff;color:var(--dark);border-radius:16px;padding:30px;box-shadow:0 6px 18px rgba(0,0,0,.15);}
+  .apply-card h3{display:flex;align-items:center;gap:10px;color:var(--autumn);font-size:1.3rem;margin-bottom:8px;}
+  .apply-card .lead{font-size:.95rem;margin-bottom:20px;color:#666;}
+  .apply-btn{display:block;text-align:center;background:var(--autumn);color:#fff;padding:14px;border-radius:30px;font-weight:bold;margin-bottom:12px;transition:.2s;}
+  .apply-btn:hover{transform:translateY(-2px);background:#a93226;}
+  .apply-btn.line{background:#06c755;}
+  .apply-btn.line:hover{background:#05a647;}
+  .apply-info{background:var(--cream);border-radius:12px;padding:16px;margin-top:14px;font-size:.95rem;}
+  .apply-info strong{color:var(--autumn);}
+  .apply-note{font-size:.8rem;color:#888;margin-top:8px;}
+  @media(max-width:768px){
+    .apply-grid{grid-template-columns:1fr;}
+  }
+
 
   /* フッター */
   footer{background:var(--dark);color:#ddd;padding:50px 20px;font-size:.9rem;}
@@ -384,10 +398,36 @@
 <section class="apply" id="apply">
   <div class="container">
     <h2>エントリー</h2>
-    <p>定員になり次第締め切ります。お申し込みはお早めに！</p>
-    <a href="★申込フォームURL" class="btn">WEBで申し込む</a>
-    <div class="townmsg">
-      🏠 <strong>上砂川町民の方</strong>は、役場企画課(0125-62-2223)へ直接お申し込みください。
+    <p class="sub">定員になり次第締め切ります。お申し込みはお早めに！</p>
+    <div class="apply-grid">
+
+      <!-- 町外の方 -->
+      <div class="apply-card">
+        <h3>🏃 町外にお住まいの方</h3>
+        <p class="lead">下記いずれかのエントリーサイトからお申し込みください。</p>
+        <a class="apply-btn" href="https://moshicom.com/" target="_blank" rel="noopener">
+          e-moshicom で申し込む
+        </a>
+        <a class="apply-btn" href="https://www.sportsentry.ne.jp/" target="_blank" rel="noopener">
+          スポーツエントリー で申し込む
+        </a>
+        <p class="apply-note">※ どちらか一方のサイトからお申し込みください。</p>
+      </div>
+
+      <!-- 町内の方 -->
+      <div class="apply-card">
+        <h3>🏠 上砂川町にお住まいの方</h3>
+        <p class="lead">以下の3つの方法でお申し込みいただけます。</p>
+        <a class="apply-btn line" href="https://liff.line.me/1657935502-X4my9R49?page=survey_launcher&channel_id=1656013847&liff_id=1657935502-X4my9R49&survey_id=a0OIh000000TOAx" target="_blank" rel="noopener">
+          公式LINEで申し込む(スマホのみ)
+        </a>
+        <div class="apply-info">
+          <p>📍 <strong>窓口</strong>：役場 企画課窓口</p>
+          <p>📞 <strong>電話</strong>：0125-62-2223</p>
+        </div>
+        <p class="apply-note">※ LINE申込フォームはスマートフォンからのみご利用いただけます。</p>
+      </div>
+
     </div>
   </div>
 </section>
