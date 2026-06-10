@@ -126,13 +126,13 @@
   .apply-btn:hover{transform:translateY(-2px);background:#a93226;}
   .apply-btn.line{background:#06c755;}
   .apply-btn.line:hover{background:#05a647;}
+  .qr-box{display:flex;align-items:center;gap:16px;background:#f0fbf3;border:1px solid #cdeed7;border-radius:12px;padding:16px;margin-top:14px;}
+  .qr-box img{width:120px;height:120px;border-radius:8px;flex-shrink:0;background:#fff;}
+  .qr-box .qr-text{font-size:.9rem;line-height:1.6;}
+  .qr-box .qr-text strong{color:#06c755;}
   .apply-info{background:var(--cream);border-radius:12px;padding:16px;margin-top:14px;font-size:.95rem;}
   .apply-info strong{color:var(--autumn);}
   .apply-note{font-size:.8rem;color:#888;margin-top:8px;}
-  @media(max-width:768px){
-    .apply-grid{grid-template-columns:1fr;}
-  }
-
 
   /* フッター */
   footer{background:var(--dark);color:#ddd;padding:50px 20px;font-size:.9rem;}
@@ -147,6 +147,8 @@
     .aid-grid{grid-template-columns:repeat(2,1fr);}
     .guest-grid{grid-template-columns:1fr;}
     .sns-grid{grid-template-columns:1fr;}
+    .apply-grid{grid-template-columns:1fr;}
+    .qr-box{flex-direction:column;text-align:center;}
     .nav .logo{font-size:.95rem;}
     .course-table{font-size:.85rem;}
     .course-table th,.course-table td{padding:10px 6px;}
@@ -160,7 +162,7 @@
   <div class="nav">
     <div class="logo">
       <img src="images/logo.png" alt="かみすながわ紅葉マラニック ロゴ">
-      <span>第４回かみすながわぐるっと紅葉マラニック</span>
+      <span>かみすながわ紅葉マラニック</span>
     </div>
     <a href="#apply" class="cta">エントリー</a>
   </div>
@@ -421,6 +423,16 @@
         <a class="apply-btn line" href="https://liff.line.me/1657935502-X4my9R49?page=survey_launcher&channel_id=1656013847&liff_id=1657935502-X4my9R49&survey_id=a0OIh000000TOAx" target="_blank" rel="noopener">
           公式LINEで申し込む(スマホのみ)
         </a>
+
+        <!-- LINE QRコード -->
+        <div class="qr-box">
+          <img src="images/line-qr.png" alt="上砂川町公式LINE申込フォームQRコード">
+          <p class="qr-text">
+            📱 <strong>QRコードで簡単アクセス</strong><br>
+            スマホのカメラまたはLINEアプリで読み取って、申込フォームを開けます。
+          </p>
+        </div>
+
         <div class="apply-info">
           <p>📍 <strong>窓口</strong>：役場 企画課窓口</p>
           <p>📞 <strong>電話</strong>：0125-62-2223</p>
