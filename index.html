@@ -46,6 +46,21 @@
   .intro{text-align:center;}
   .intro p{max-width:700px;margin:0 auto 20px;font-size:1.05rem;}
 
+  /* カウントダウン */
+  .countdown{background:var(--cream);text-align:center;padding:50px 20px 60px;}
+  .countdown .cd-label{display:inline-block;background:var(--autumn);color:#fff;font-weight:bold;padding:8px 26px;border-radius:30px;font-size:1.05rem;margin-bottom:24px;}
+  .countdown .cd-label.open{background:var(--green);}
+  .cd-timer{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .cd-box{background:#fff;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.08);padding:18px 10px;min-width:90px;border-top:4px solid var(--orange);}
+  .cd-box .num{font-size:2.6rem;font-weight:bold;color:var(--autumn);line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-box .unit{font-size:.85rem;color:#888;margin-top:8px;}
+  .cd-finish{font-size:1.6rem;font-weight:bold;color:var(--green);padding:20px;}
+  @media(max-width:768px){
+    .cd-box{min-width:68px;padding:14px 6px;}
+    .cd-box .num{font-size:1.9rem;}
+    .cd-box .unit{font-size:.75rem;}
+  }
+  
   /* 動画セクション */
   .movie{background:var(--dark);color:#fff;}
   .movie h2{color:var(--gold);}
@@ -198,6 +213,19 @@
   その町を、紅葉に染まる山々や水源公園・日本庭園・炭鉱館などの名所をめぐりながら一周します。</p>
   <p>競技タイムを競うのではなく、自分のペースで走り、歩き、味わう「マラニック」スタイル。<br>
   地元の食材がならぶエイドと、ゴール後のパンケの湯が、頑張ったあなたを待っています。</p>
+</section>
+
+<!-- ②-2 カウントダウン -->
+<section class="countdown">
+  <div class="container">
+    <p class="cd-label" id="cdLabel">エントリー開始まで</p>
+    <div class="cd-timer" id="cdTimer">
+      <div class="cd-box"><div class="num" id="cdDays">--</div><div class="unit">日</div></div>
+      <div class="cd-box"><div class="num" id="cdHours">--</div><div class="unit">時間</div></div>
+      <div class="cd-box"><div class="num" id="cdMins">--</div><div class="unit">分</div></div>
+      <div class="cd-box"><div class="num" id="cdSecs">--</div><div class="unit">秒</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- 動画セクション(第2回大会) -->
@@ -477,6 +505,60 @@
       document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
     });
   });
+
+  /* === カウントダウン（2段階自動切替） === */
+  (function(){
+    const OPEN_DATE  = new Date("2026-07-01T00:00:00+09:00");
+    const EVENT_DATE = new Date("2026-10-10T09:00:00+09:00");
+
+    const label = document.getElementById("cdLabel");
+    const elD = document.getElementById("cdDays");
+    const elH = document.getElementById("cdHours");
+    const elM = document.getElementById("cdMins");
+    const elS = document.getElementById("cdSecs");
+    const timer = document.getElementById("cdTimer");
+
+    function render(){
+      const now = new Date();
+      let target, text, isOpen=false, finished=false;
+
+      if(now < OPEN_DATE){
+        target = OPEN_DATE;
+        text = "エントリー開始まで";
+      }else if(now < EVENT_DATE){
+        target = EVENT_DATE;
+        text = "エントリー受付中！大会当日まで";
+        isOpen = true;
+      }else{
+        finished = true;
+      }
+
+      label.textContent = text || "";
+      label.classList.toggle("open", isOpen);
+
+      if(finished){
+        timer.innerHTML = '<div class="cd-finish">🍁 第4回大会、開催しました！ご参加ありがとうございました 🍁</div>';
+        label.style.display = "none";
+        return true;
+      }
+
+      let diff = Math.max(0, target - now);
+      const d = Math.floor(diff/86400000); diff -= d*86400000;
+      const h = Math.floor(diff/3600000);  diff -= h*3600000;
+      const m = Math.floor(diff/60000);    diff -= m*60000;
+      const s = Math.floor(diff/1000);
+
+      elD.textContent = d;
+      elH.textContent = String(h).padStart(2,"0");
+      elM.textContent = String(m).padStart(2,"0");
+      elS.textContent = String(s).padStart(2,"0");
+      return false;
+    }
+
+    if(!render()){
+      const iv = setInterval(()=>{ if(render()) clearInterval(iv); }, 1000);
+    }
+  })();
 </script>
 
 </body>
