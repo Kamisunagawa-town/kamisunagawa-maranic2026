@@ -5,6 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第4回かみすながわぐるっと紅葉マラニック｜2026.10.10(土)</title>
 <meta name="description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。2026年10月10日(土)開催！">
+
+<!-- ファビコン -->
+<link rel="icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<!-- OGP（SNSシェア用） -->
+<meta property="og:title" content="第4回 かみすながわぐるっと紅葉マラニック | 2026.10.10(土)">
+<meta property="og:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。エントリーは2026年7月1日から！">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/">
+<meta property="og:image" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/images/ogp.jpg">
+<meta property="og:site_name" content="かみすながわぐるっと紅葉マラニック">
+<meta property="og:locale" content="ja_JP">
+
+<!-- X（Twitter）用 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第4回 かみすながわぐるっと紅葉マラニック | 2026.10.10(土)">
+<meta name="twitter:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。エントリーは2026年7月1日から！">
+<meta name="twitter:image" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/images/ogp.jpg">
+  
 <style>
   :root{
     --autumn:#c0392b;--orange:#e67e22;--gold:#f1c40f;
@@ -25,7 +47,7 @@
   .nav .logo{display:flex;align-items:center;gap:8px;font-weight:bold;color:var(--autumn);font-size:1.1rem;}
   .nav .logo img{height:36px;width:auto;}
   .nav .cta{background:var(--autumn);color:#fff;padding:10px 22px;border-radius:30px;font-weight:bold;}
-
+   
   /* ヒーロー(動画背景版) */
   .hero{position:relative;color:#fff;text-align:center;padding:120px 20px;overflow:hidden;}
   .hero-video{
@@ -506,10 +528,11 @@
     });
   });
 
-  /* === カウントダウン（2段階自動切替） === */
+  /* === カウントダウン（自動切替） === */
   (function(){
-    const OPEN_DATE  = new Date("2026-07-01T00:00:00+09:00");
-    const EVENT_DATE = new Date("2026-10-10T09:00:00+09:00");
+    const OPEN_DATE  = new Date("2026-07-01T00:00:00+09:00"); // エントリー開始
+    const EVENT_DATE = new Date("2026-10-10T09:00:00+09:00"); // 大会スタート
+    const EVENT_END  = new Date("2026-10-10T17:00:00+09:00"); // 大会終了
 
     const label = document.getElementById("cdLabel");
     const elD = document.getElementById("cdDays");
@@ -520,7 +543,7 @@
 
     function render(){
       const now = new Date();
-      let target, text, isOpen=false, finished=false;
+      let target, text, isOpen=false, special=null;
 
       if(now < OPEN_DATE){
         target = OPEN_DATE;
@@ -529,17 +552,20 @@
         target = EVENT_DATE;
         text = "エントリー受付中！大会当日まで";
         isOpen = true;
+      }else if(now < EVENT_END){
+        special = '<div class="cd-finish">🏃 ただいま開催中！</div>'; // 9:00〜17:00
       }else{
-        finished = true;
+        special = '<div class="cd-finish">🍁 開催しました。ありがとうございました 🍁</div>'; // 17:00〜
       }
 
       label.textContent = text || "";
       label.classList.toggle("open", isOpen);
 
-      if(finished){
-        timer.innerHTML = '<div class="cd-finish">🍁 第4回大会、開催しました！ご参加ありがとうございました 🍁</div>';
+      if(special){
+        timer.innerHTML = special;
         label.style.display = "none";
-        return true;
+        // 「開催中」は17:00で「ありがとう」に切り替えるため、終了後のみ停止
+        return now >= EVENT_END;
       }
 
       let diff = Math.max(0, target - now);
@@ -559,6 +585,7 @@
       const iv = setInterval(()=>{ if(render()) clearInterval(iv); }, 1000);
     }
   })();
+
 </script>
 
 </body>
