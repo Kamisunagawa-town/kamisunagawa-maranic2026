@@ -135,6 +135,18 @@
   .aid-cover .lk{font-size:1.4rem;margin-bottom:2px;}
   .aid-cover .rv{font-size:.95rem;font-weight:bold;text-shadow:0 1px 4px rgba(0,0,0,.6);line-height:1.4;}
 
+  /* エイド提供コースのタグ(F/S/L) */
+  .aid-courses{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:8px;}
+  .ctag{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:50%;
+    font-size:.8rem;color:#fff;font-weight:bold;line-height:1;
+  }
+  .ctag.family{background:var(--green);}
+  .ctag.short{background:var(--orange);}
+  .ctag.long{background:var(--autumn);}
+  .aid-card .goal-note{font-size:.7rem;color:#777;margin-top:5px;line-height:1.3;}
+
   /* ゲスト */
   .guests{background:var(--dark);color:#fff;}
   .guests h2{color:var(--gold);}
@@ -342,63 +354,88 @@
   <div class="container">
     <h2>名物！地元グルメのエイドポイント</h2>
     <p class="sub">上砂川と周辺の「おいしい」をめぐる旅</p>
+    <p style="text-align:center;margin-bottom:24px;font-size:.9rem;">
+      提供コースの目印：
+      <span class="ctag family">F</span>＝ファミリー　
+      <span class="ctag short">S</span>＝ショート　
+      <span class="ctag long">L</span>＝ロング
+    </p>
     <div class="aid-grid">
       <!-- スタート(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid00.jpg" alt="スタート地点"></div>
-        <div class="body"><div class="num">S</div><div>スタート地点<br><small>0.0km</small></div></div>
+        <div class="body"><div class="num">S</div><div>スタート地点<br><small>0.0km</small></div>
+          <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第1(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid01.jpg" alt="水源公園"></div>
-        <div class="body"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div></div>
+        <div class="body"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div>
+          <div class="aid-courses"><span class="ctag short">S</span><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第2(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid02.jpg" alt="日本庭園"></div>
-        <div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div></div>
+        <div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div>
+          <div class="aid-courses"><span class="ctag short">S</span><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第3(7/10公開) -->
       <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid03.jpg" alt="きまぐれ牧場">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div></div>
+        <div class="body"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div>
+          <div class="aid-courses"><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第4(7/10公開) -->
       <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid04.jpg" alt="鶉児童公園">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div></div>
+        <div class="body"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div>
+          <div class="aid-courses"><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第5(7/17公開) -->
       <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid05.jpg" alt="下鶉生活館">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div></div>
+        <div class="body"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div>
+          <div class="aid-courses"><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第6(7/17公開) -->
       <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid06.jpg" alt="まちの駅ふらっと">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div></div>
+        <div class="body"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div>
+          <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
+          <div class="goal-note">※F・Sはゴールで提供</div>
+        </div>
       </div>
       <!-- 第7(7/24公開) -->
       <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid07.jpg" alt="かみすながわ炭鉱館">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div></div>
+        <div class="body"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div>
+          <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
+        </div>
       </div>
       <!-- 第8(7/24公開) -->
       <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid08.jpg" alt="パークゴルフ場">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
         </div>
-        <div class="body"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div></div>
+        <div class="body"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div>
+          <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
+        </div>
       </div>
     </div>
     <div class="food-note">
