@@ -41,6 +41,10 @@
   h2{font-size:2rem;text-align:center;margin-bottom:10px;color:var(--autumn);}
   h2 + .sub{text-align:center;color:var(--orange);margin-bottom:40px;font-weight:bold;}
 
+  /* お知らせバナー */
+  .notice-bar{display:none;background:var(--green);color:#fff;text-align:center;padding:12px 16px;font-weight:bold;font-size:1rem;}
+  .notice-bar a{text-decoration:underline;}
+
   /* ヘッダー */
   header{position:sticky;top:0;background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:100;}
   .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;}
@@ -111,12 +115,25 @@
 
   /* エイド */
   .aid{background:#fff;}
-  .aid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px;}
+  .aid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px;}
   .aid-card{background:var(--cream);border-radius:12px;overflow:hidden;text-align:center;}
   .aid-card img{width:100%;height:120px;object-fit:cover;}
   .aid-card .body{padding:14px 10px;}
   .aid-card .num{display:inline-block;width:34px;height:34px;line-height:34px;border-radius:50%;background:var(--gold);color:var(--dark);font-weight:bold;margin-bottom:8px;}
   .food-note{text-align:center;background:var(--green);color:#fff;padding:20px;border-radius:12px;font-weight:bold;}
+
+  /* エイド目隠し(ぼかし) */
+  .aid-card .thumb{position:relative;overflow:hidden;}
+  .aid-card .thumb img{transition:filter .6s;}
+  .aid-card.locked .thumb img{filter:blur(14px) brightness(.85);transform:scale(1.08);}
+  .aid-cover{
+    position:absolute;inset:0;display:none;flex-direction:column;
+    align-items:center;justify-content:center;color:#fff;text-align:center;
+    background:rgba(58,38,24,.30);
+  }
+  .aid-card.locked .aid-cover{display:flex;}
+  .aid-cover .lk{font-size:1.4rem;margin-bottom:2px;}
+  .aid-cover .rv{font-size:.95rem;font-weight:bold;text-shadow:0 1px 4px rgba(0,0,0,.6);line-height:1.4;}
 
   /* ゲスト */
   .guests{background:var(--dark);color:#fff;}
@@ -197,6 +214,9 @@
 </style>
 </head>
 <body>
+
+<!-- お知らせバナー(エイド公開時に自動表示) -->
+<div class="notice-bar" id="noticeBar"></div>
 
 <!-- ヘッダー -->
 <header>
@@ -318,19 +338,68 @@
 </section>
 
 <!-- ⑤ エイド -->
-<section class="aid">
+<section class="aid" id="aid">
   <div class="container">
     <h2>名物！地元グルメのエイドポイント</h2>
     <p class="sub">上砂川と周辺の「おいしい」をめぐる旅</p>
     <div class="aid-grid">
-      <div class="aid-card"><img src="images/aid/aid01.jpg" alt="水源公園"><div class="body"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid02.jpg" alt="日本庭園"><div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid03.jpg" alt="きまぐれ牧場"><div class="body"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid04.jpg" alt="鶉児童公園"><div class="body"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid05.jpg" alt="下鶉生活館"><div class="body"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid06.jpg" alt="まちの駅ふらっと"><div class="body"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid07.jpg" alt="かみすながわ炭鉱館"><div class="body"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div></div></div>
-      <div class="aid-card"><img src="images/aid/aid08.jpg" alt="パークゴルフ場"><div class="body"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div></div></div>
+      <!-- スタート(最初から公開) -->
+      <div class="aid-card">
+        <div class="thumb"><img src="images/aid/aid00.jpg" alt="スタート地点"></div>
+        <div class="body"><div class="num">S</div><div>スタート地点<br><small>0.0km</small></div></div>
+      </div>
+      <!-- 第1(最初から公開) -->
+      <div class="aid-card">
+        <div class="thumb"><img src="images/aid/aid01.jpg" alt="水源公園"></div>
+        <div class="body"><div class="num">1</div><div>水源公園<br><small>2.1km</small></div></div>
+      </div>
+      <!-- 第2(最初から公開) -->
+      <div class="aid-card">
+        <div class="thumb"><img src="images/aid/aid02.jpg" alt="日本庭園"></div>
+        <div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.2km</small></div></div>
+      </div>
+      <!-- 第3(7/10公開) -->
+      <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid03.jpg" alt="きまぐれ牧場">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">3</div><div>きまぐれ牧場<br><small>8.8km</small></div></div>
+      </div>
+      <!-- 第4(7/10公開) -->
+      <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid04.jpg" alt="鶉児童公園">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">4</div><div>鶉児童公園<br><small>12km</small></div></div>
+      </div>
+      <!-- 第5(7/17公開) -->
+      <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid05.jpg" alt="下鶉生活館">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">5</div><div>下鶉生活館<br><small>14.6km</small></div></div>
+      </div>
+      <!-- 第6(7/17公開) -->
+      <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid06.jpg" alt="まちの駅ふらっと">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">6</div><div>まちの駅ふらっと<br><small>17.8km</small></div></div>
+      </div>
+      <!-- 第7(7/24公開) -->
+      <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid07.jpg" alt="かみすながわ炭鉱館">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">7</div><div>かみすながわ炭鉱館<br><small>19.1km</small></div></div>
+      </div>
+      <!-- 第8(7/24公開) -->
+      <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
+        <div class="thumb"><img src="images/aid/aid08.jpg" alt="パークゴルフ場">
+          <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
+        </div>
+        <div class="body"><div class="num">8</div><div>パークゴルフ場<br><small>21.2km</small></div></div>
+      </div>
     </div>
     <div class="food-note">
       🍖 昨年の提供例：ニジマス燻製・自家製カンパーニュ・エゾシカロースト など<br>
@@ -583,6 +652,39 @@
 
     if(!render()){
       const iv = setInterval(()=>{ if(render()) clearInterval(iv); }, 1000);
+    }
+  })();
+
+  /* === エイド画像の自動公開 ＆ お知らせバナー === */
+  (function(){
+    const now = new Date();
+    const cards = document.querySelectorAll(".aid-card[data-reveal]");
+
+    cards.forEach(card=>{
+      const reveal = new Date(card.getAttribute("data-reveal"));
+      if(now < reveal){
+        card.classList.add("locked"); // 未公開 → ぼかし
+      }
+      // 公開済みは locked を付けない(=くっきり表示)
+    });
+
+    // お知らせバナー：公開後7日以内のエイドがあれば表示
+    const reveals = [
+      {date:new Date("2026-07-10T00:00:00+09:00"), label:"第3・第4エイド"},
+      {date:new Date("2026-07-17T00:00:00+09:00"), label:"第5・第6エイド"},
+      {date:new Date("2026-07-24T00:00:00+09:00"), label:"第7・第8エイド"},
+    ];
+    const bar = document.getElementById("noticeBar");
+    if(bar){
+      let latest = null;
+      reveals.forEach(r=>{
+        const days = (now - r.date) / 86400000;
+        if(days >= 0 && days <= 7){ latest = r; }
+      });
+      if(latest){
+        bar.innerHTML = '🍁 ' + latest.label + 'のグルメを公開しました！ <a href="#aid">チェックする →</a>';
+        bar.style.display = "block";
+      }
     }
   })();
 
