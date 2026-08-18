@@ -487,14 +487,12 @@
   <h2>参加者特典</h2>
   <p class="sub">頑張ったあなたへのご褒美</p>
   <div class="perks-grid">
-    <div class="perk coming">
-      <div class="thumb">
-        <img src="images/perk-tshirt.jpg" alt="記念Tシャツ(デザイン作成中)">
-        <div class="perk-cover"><span class="tx">デザイン作成中<br>お楽しみに！</span></div>
-      </div>
+        <div class="perk">
+      <img src="images/maranic_tshirt.png" alt="第4回記念オリジナルTシャツ">
       <div class="body"><div class="icon">👕</div><h3>記念Tシャツ</h3>
         <p>第4回記念オリジナルTシャツをプレゼント。SS～XL、100～150cmから選べます。</p></div>
     </div>
+
     <div class="perk">
       <img src="images/feature-onsen.jpg" alt="温泉入浴券">
       <div class="body"><div class="icon">♨️</div><h3>温泉入浴券</h3>
@@ -725,11 +723,12 @@
       // 公開済みは locked を付けない(=くっきり表示)
     });
 
-    // お知らせバナー：公開後7日以内のエイドがあれば表示
+        // お知らせバナー：公開後7日以内のお知らせがあれば表示
     const reveals = [
-      {date:new Date("2026-07-10T00:00:00+09:00"), label:"第3・第4エイド"},
-      {date:new Date("2026-07-17T00:00:00+09:00"), label:"第5・第6エイド"},
-      {date:new Date("2026-07-24T00:00:00+09:00"), label:"第7・第8エイド"},
+      {date:new Date("2026-07-10T00:00:00+09:00"), msg:'🍁 第3・第4エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
+      {date:new Date("2026-07-17T00:00:00+09:00"), msg:'🍁 第5・第6エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
+      {date:new Date("2026-07-24T00:00:00+09:00"), msg:'🍁 第7・第8エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
+      {date:new Date("2026-08-18T00:00:00+09:00"), msg:'👕 記念Tシャツのデザインが完成しました！ <a href="#tshirt">デザインを見る →</a>'},
     ];
     const bar = document.getElementById("noticeBar");
     if(bar){
@@ -739,10 +738,11 @@
         if(days >= 0 && days <= 7){ latest = r; }
       });
       if(latest){
-        bar.innerHTML = '🍁 ' + latest.label + 'のグルメを公開しました！ <a href="#aid">チェックする →</a>';
+        bar.innerHTML = latest.msg;
         bar.style.display = "block";
       }
     }
+
   })();
 
 </script>
