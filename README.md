@@ -31,6 +31,10 @@ https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/
 ### 記念Tシャツのぼかしを外すには
 記念Tシャツのカードの `<div class="perk coming">` から `coming` を削除します。
 
+### お知らせバナーを追加するには
+スクリプト末尾の `reveals` 配列に、日付とメッセージを追記します。
+設定日から7日間、自動で表示されます。
+
 ### カウントダウンの日付
 スクリプト内の `OPEN_DATE`／`EVENT_DATE`／`EVENT_END` で管理しています。
 
