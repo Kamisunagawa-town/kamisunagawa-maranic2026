@@ -18,7 +18,7 @@
 
 <!-- OGP（SNSシェア用） -->
 <meta property="og:title" content="第4回 かみすながわぐるっと紅葉マラニック | 2026.10.10(土)">
-<meta property="og:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。エントリーは2026年7月1日から！">
+<meta property="og:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。2026年10月10日(土)開催！">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/">
 <meta property="og:image" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/images/ogp.jpg">
@@ -28,7 +28,7 @@
 <!-- X（Twitter）用 -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="第4回 かみすながわぐるっと紅葉マラニック | 2026.10.10(土)">
-<meta name="twitter:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。エントリーは2026年7月1日から！">
+<meta name="twitter:description" content="北海道で一番小さな町・上砂川町を紅葉とともにぐるっと一周。豪華エイドと温泉が待つ“ご褒美ラン”。2026年10月10日(土)開催！">
 <meta name="twitter:image" content="https://kamisunagawa-town.github.io/kamisunagawa-maranic2026/images/ogp.jpg">
   
 <style>
@@ -54,7 +54,7 @@
   .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;}
   .nav .logo{display:flex;align-items:center;gap:8px;font-weight:bold;color:var(--autumn);font-size:1.1rem;}
   .nav .logo img{height:36px;width:auto;}
-  .nav .cta{background:var(--autumn);color:#fff;padding:10px 22px;border-radius:30px;font-weight:bold;}
+  .nav .cta{background:var(--autumn);color:#fff;padding:10px 22px;border-radius:30px;font-weight:bold;white-space:nowrap;}
    
   /* ヒーロー(動画背景版) */
   .hero{position:relative;color:#fff;text-align:center;padding:120px 20px;overflow:hidden;}
@@ -117,6 +117,23 @@
   .tag.short{background:var(--orange);}
   .tag.family{background:var(--green);}
 
+  /* コースマップ */
+  .map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+  .map-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);}
+  .map-card .map-head{padding:12px;text-align:center;font-weight:bold;color:#fff;}
+  .map-card .map-head.family{background:var(--green);}
+  .map-card .map-head.short{background:var(--orange);}
+  .map-card .map-head.long{background:var(--autumn);}
+  .map-card .map-head .dist{font-size:.85rem;font-weight:normal;opacity:.9;display:block;}
+  .map-card iframe{width:100%;height:300px;border:0;display:block;}
+  .map-card .map-foot{padding:10px;text-align:center;font-size:.85rem;}
+  .map-card .map-foot a{color:var(--autumn);text-decoration:underline;font-weight:bold;}
+  .map-note{text-align:center;font-size:.9rem;margin-top:20px;color:#666;}
+  @media(max-width:768px){
+    .map-grid{grid-template-columns:1fr;}
+    .map-card iframe{height:280px;}
+  }
+
   /* エイド */
   .aid{background:#fff;}
   .aid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px;}
@@ -151,19 +168,6 @@
   .ctag.long{background:var(--autumn);}
   .aid-card .goal-note{font-size:.7rem;color:#777;margin-top:5px;line-height:1.3;}
 
-  /* 特典の準備中ぼかし */
-  .perk .thumb{position:relative;overflow:hidden;}
-  .perk .thumb img{transition:filter .6s;}
-  .perk.coming .thumb img{filter:blur(12px) brightness(.85);transform:scale(1.06);}
-  .perk-cover{
-    position:absolute;inset:0;display:none;flex-direction:column;
-    align-items:center;justify-content:center;color:#fff;text-align:center;
-    background:rgba(58,38,24,.35);
-  }
-  .perk.coming .perk-cover{display:flex;}
-  .perk-cover .ic2{font-size:1.8rem;margin-bottom:4px;}
-  .perk-cover .tx{font-size:1rem;font-weight:bold;text-shadow:0 1px 4px rgba(0,0,0,.6);line-height:1.4;}
-  
   /* ゲスト */
   .guests{background:var(--dark);color:#fff;}
   .guests h2{color:var(--gold);}
@@ -197,29 +201,17 @@
   .sns-follow.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
   .sns-note{font-size:.85rem;color:#888;text-align:center;margin-top:24px;}
 
-  /* 申込 */
+  /* 大会情報(受付終了) */
   .apply{background:linear-gradient(135deg,var(--orange),var(--autumn));color:#fff;text-align:center;}
   .apply h2{color:#fff;}
   .apply .sub{color:#ffe8c7;}
-  .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:10px;text-align:left;align-items:stretch;}
-  .apply-card{background:#fff;color:var(--dark);border-radius:16px;padding:30px;box-shadow:0 6px 18px rgba(0,0,0,.15);display:flex;flex-direction:column;}
-  .apply-card h3{display:flex;align-items:center;gap:10px;color:var(--autumn);font-size:1.3rem;margin-bottom:8px;}
-  .apply-card .lead{font-size:.95rem;margin-bottom:20px;color:#666;}
-  .apply-btn{display:block;text-align:center;background:var(--autumn);color:#fff;padding:14px;border-radius:30px;font-weight:bold;margin-bottom:12px;transition:.2s;}
-  .apply-btn:hover{transform:translateY(-2px);background:#a93226;}
-  .apply-btn.line{background:#06c755;}
-  .apply-btn.line:hover{background:#05a647;}
-
-  /* LINE申込(ボタン＋QRを横並び) */
-  .line-apply{display:flex;align-items:center;gap:14px;background:#f0fbf3;border:1px solid #cdeed7;border-radius:12px;padding:14px;margin-bottom:14px;}
-  .line-apply .line-left{flex:1;}
-  .line-apply .apply-btn.line{margin-bottom:8px;}
-  .line-apply .line-note{font-size:.8rem;color:#777;}
-  .line-apply .qr{width:96px;height:96px;border-radius:8px;flex-shrink:0;background:#fff;}
-
-  .apply-info{background:var(--cream);border-radius:12px;padding:16px;font-size:.95rem;}
-  .apply-info strong{color:var(--autumn);}
-  .apply-note{font-size:.8rem;color:#888;margin-top:8px;}
+  .closed-card{background:#fff;color:var(--dark);border-radius:16px;padding:40px 30px;max-width:660px;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,.15);}
+  .closed-card .ic{font-size:2.6rem;margin-bottom:10px;}
+  .closed-card .thanks{font-weight:bold;font-size:1.15rem;margin-bottom:14px;line-height:1.7;}
+  .closed-card .lead{font-size:.95rem;color:#666;line-height:1.8;}
+  .closed-info{background:var(--cream);border-radius:12px;padding:18px;margin-top:26px;font-size:.95rem;text-align:left;}
+  .closed-info strong{color:var(--autumn);}
+  .closed-info p + p{margin-top:10px;}
 
   /* フッター */
   footer{background:var(--dark);color:#ddd;padding:50px 20px;font-size:.9rem;}
@@ -234,17 +226,17 @@
     .aid-grid{grid-template-columns:repeat(2,1fr);}
     .guest-grid{grid-template-columns:1fr;}
     .sns-grid{grid-template-columns:1fr;}
-    .apply-grid{grid-template-columns:1fr;}
-    .qr-box{flex-direction:column;text-align:center;}
     .nav .logo{font-size:.95rem;}
+    .nav .cta{padding:9px 16px;font-size:.9rem;}
     .course-table{font-size:.85rem;}
     .course-table th,.course-table td{padding:10px 6px;}
+    .closed-card{padding:30px 20px;}
   }
 </style>
 </head>
 <body>
 
-<!-- お知らせバナー(エイド公開時に自動表示) -->
+<!-- お知らせバナー(自動表示) -->
 <div class="notice-bar" id="noticeBar"></div>
 
 <!-- ヘッダー -->
@@ -254,25 +246,22 @@
       <img src="images/logo.png" alt="かみすながわ紅葉マラニック ロゴ">
       <span>第４回かみすながわぐるっと紅葉マラニック</span>
     </div>
-    <a href="#apply" class="cta">エントリー</a>
+    <a href="#info" class="cta">大会情報</a>
   </div>
 </header>
 
 <!-- ① ヒーロー(動画背景版) -->
 <section class="hero">
-  <!-- 背景動画 -->
   <video class="hero-video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
     <source src="images/hero.mp4" type="video/mp4">
   </video>
-  <!-- 暗幕オーバーレイ -->
   <div class="hero-overlay"></div>
-  <!-- テキスト -->
   <div class="hero-content">
     <span class="badge">第4回開催！</span>
     <h1>かみすながわ<br>ぐるっと紅葉マラニック</h1>
     <p class="date">2026年10月10日(土) ｜ 雨天決行</p>
     <p class="catch">北海道で一番小さな町を、紅葉と一緒にぐるっと一周。<br>豪華エイドと温泉が待つ、走って・歩いて・味わう“ご褒美ラン”。</p>
-    <a href="#apply" class="btn">エントリーはこちら</a>
+    <a href="#info" class="btn">大会情報を見る</a>
   </div>
 </section>
 
@@ -289,7 +278,7 @@
 <!-- ②-2 カウントダウン -->
 <section class="countdown">
   <div class="container">
-    <p class="cd-label" id="cdLabel">エントリー開始まで</p>
+    <p class="cd-label" id="cdLabel">大会当日まで</p>
     <div class="cd-timer" id="cdTimer">
       <div class="cd-box"><div class="num" id="cdDays">--</div><div class="unit">日</div></div>
       <div class="cd-box"><div class="num" id="cdHours">--</div><div class="unit">時間</div></div>
@@ -347,7 +336,7 @@
 </section>
 
 <!-- ④ コース -->
-<section class="container">
+<section class="container" id="course">
   <h2>3つのコース</h2>
   <p class="sub">体力やご家族に合わせて選べます</p>
   <table class="course-table">
@@ -364,6 +353,42 @@
     ※未就学児は無料（Tシャツ希望の場合は1,000円）／制限時間 9:00～15:00(6時間)<br>
     ※コース：パンケの湯を発着点に、水源公園 → 日本庭園 → 市街地 → かみすながわ炭鉱館 などをめぐります。
   </p>
+
+  <!-- コースマップ -->
+  <h3 style="text-align:center;margin-top:50px;color:var(--autumn);font-size:1.4rem;">🗺️ コースマップ</h3>
+  <p style="text-align:center;font-size:.9rem;margin-top:8px;">地図を動かして、コースの詳細をご確認いただけます。</p>
+
+  <div class="map-grid">
+    <!-- ファミリー -->
+    <div class="map-card">
+      <div class="map-head family">ファミリーコース<span class="dist">約7km</span></div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1CPhxl38xTf6pkRvwU13YHx0ZAyqRQNg&ehbc=2E312F"
+        title="ファミリーコース(約7km)のコースマップ" loading="lazy"></iframe>
+      <div class="map-foot">
+        <a href="https://www.google.com/maps/d/viewer?mid=1CPhxl38xTf6pkRvwU13YHx0ZAyqRQNg" target="_blank" rel="noopener">大きな地図で見る →</a>
+      </div>
+    </div>
+    <!-- ショート -->
+    <div class="map-card">
+      <div class="map-head short">ショートコース<span class="dist">約12km</span></div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1jfcthI4nB1lBZGgKNP8-lUtQiowhR2I&ehbc=2E312F"
+        title="ショートコース(約12km)のコースマップ" loading="lazy"></iframe>
+      <div class="map-foot">
+        <a href="https://www.google.com/maps/d/viewer?mid=1jfcthI4nB1lBZGgKNP8-lUtQiowhR2I" target="_blank" rel="noopener">大きな地図で見る →</a>
+      </div>
+    </div>
+    <!-- ロング -->
+    <div class="map-card">
+      <div class="map-head long">ロングコース<span class="dist">約23km</span></div>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1ZvO_RNjreh2hO9UaBhRhb8L7JvIdVlE&ehbc=2E312F"
+        title="ロングコース(約23km)のコースマップ" loading="lazy"></iframe>
+      <div class="map-foot">
+        <a href="https://www.google.com/maps/d/viewer?mid=1ZvO_RNjreh2hO9UaBhRhb8L7JvIdVlE" target="_blank" rel="noopener">大きな地図で見る →</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="map-note">※ コースは当日の状況により一部変更となる場合があります。</p>
 </section>
 
 <!-- ⑤ エイド -->
@@ -378,28 +403,24 @@
       <span class="ctag long">L</span>＝ロング
     </p>
     <div class="aid-grid">
-      <!-- スタート(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid00.jpg" alt="スタート地点"></div>
         <div class="body"><div class="num">S</div><div>スタート地点<br><small>0.0km</small></div>
           <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第1(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid01.jpg" alt="水源公園"></div>
         <div class="body"><div class="num">1</div><div>水源公園<br><small>2.35km</small></div>
           <div class="aid-courses"><span class="ctag short">S</span><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第2(最初から公開) -->
       <div class="aid-card">
         <div class="thumb"><img src="images/aid/aid02.jpg" alt="日本庭園"></div>
         <div class="body"><div class="num">2</div><div>日本庭園＆キャンプ場<br><small>4.83km</small></div>
           <div class="aid-courses"><span class="ctag short">S</span><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第3(7/10公開) -->
       <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid03.jpg" alt="きまぐれ牧場">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
@@ -408,7 +429,6 @@
           <div class="aid-courses"><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第4(7/10公開) -->
       <div class="aid-card" data-reveal="2026-07-10T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid04.jpg" alt="鶉児童公園">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月10日(金)<br>公開！</span></div>
@@ -417,7 +437,6 @@
           <div class="aid-courses"><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第5(7/17公開) -->
       <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid05.jpg" alt="下鶉生活館">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
@@ -426,7 +445,6 @@
           <div class="aid-courses"><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第6(7/17公開) -->
       <div class="aid-card" data-reveal="2026-07-17T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid06.jpg" alt="まちの駅ふらっと">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月17日(金)<br>公開！</span></div>
@@ -436,7 +454,6 @@
           <div class="goal-note">※F・Sはゴールで提供</div>
         </div>
       </div>
-      <!-- 第7(7/24公開) -->
       <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid07.jpg" alt="かみすながわ炭鉱館">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
@@ -445,7 +462,6 @@
           <div class="aid-courses"><span class="ctag family">F</span><span class="ctag short">S</span><span class="ctag long">L</span></div>
         </div>
       </div>
-      <!-- 第8(7/24公開) -->
       <div class="aid-card" data-reveal="2026-07-24T00:00:00+09:00">
         <div class="thumb"><img src="images/aid/aid08.jpg" alt="パークゴルフ場">
           <div class="aid-cover"><span class="lk">🍁</span><span class="rv">7月24日(金)<br>公開！</span></div>
@@ -487,12 +503,11 @@
   <h2>参加者特典</h2>
   <p class="sub">頑張ったあなたへのご褒美</p>
   <div class="perks-grid">
-        <div class="perk">
+    <div class="perk">
       <img src="images/maranic_tshirt.png" alt="第4回記念オリジナルTシャツ">
       <div class="body"><div class="icon">👕</div><h3>記念Tシャツ</h3>
         <p>第4回記念オリジナルTシャツをプレゼント。SS～XL、100～150cmから選べます。</p></div>
     </div>
-
     <div class="perk">
       <img src="images/feature-onsen.jpg" alt="温泉入浴券">
       <div class="body"><div class="icon">♨️</div><h3>温泉入浴券</h3>
@@ -507,26 +522,26 @@
 </section>
 
 <!-- ⑧ 開催概要 -->
-<section class="info">
+<section class="info" id="info">
   <div class="container">
     <h2>開催概要</h2>
-    <p class="sub">エントリー前にご確認ください</p>
+    <p class="sub">当日に向けてご確認ください</p>
     <table class="info-table">
       <tr><th>開催日</th><td>2026年10月10日(土) ※雨天決行(気象警報等の場合は主催者判断)</td></tr>
       <tr><th>会場・受付</th><td>上砂川岳温泉パンケの湯(スタート＆ゴール)／受付 7:45～8:30</td></tr>
-      <tr><th>募集期間</th><td>2026年7月1日～8月31日 ※定員になり次第締切</td></tr>
+      <tr><th>募集期間</th><td>2026年7月1日～8月31日 ※受付は終了しました</td></tr>
       <tr><th>参加条件</th><td>体力に自信のある方／中学生以下は保護者同伴必須／交通ルールを守り当日誓約書を提出した方 ほか</td></tr>
       <tr><th>送迎バス</th><td>
         ①有料バス：JR札幌駅 ⇔ 会場(45名限定/往復3,000円/6:30発)<br>
         ②無料バス：JR砂川駅 ⇔ 会場(8:05発)<br>
-        ※エントリー時に要選択
+        ※エントリー時に選択いただいた内容でご案内します
       </td></tr>
       <tr><th>その他</th><td>駐車場に限りがあるため乗り合わせ推奨／更衣室・荷物預かりあり/飲酒運転厳禁</td></tr>
     </table>
   </div>
 </section>
 
-<!-- ⑨ SNS最新情報セクション(A案:申込ボタンの少し上) -->
+<!-- ⑨ SNS最新情報セクション -->
 <section class="sns">
   <div class="container">
     <h2>最新情報をチェック！</h2>
@@ -536,11 +551,10 @@
       <!-- Instagram(SnapWidget) -->
       <div class="sns-col">
         <h3><span class="ic">📷</span> Instagram 最新投稿</h3>
-        <!-- SnapWidget -->
         <iframe src="https://snapwidget.com/embed/1125040"
           class="snapwidget-widget"
           allowtransparency="true" frameborder="0" scrolling="no"
-          style="border:none;overflow:hidden;width:100%;"
+          style="border:none;overflow:hidden;width:100%;height:340px;"
           title="Posts from Instagram"></iframe>
         <div style="text-align:center;">
           <a class="sns-follow ig" href="https://www.instagram.com/kamisunagawa_town/" target="_blank" rel="noopener">
@@ -549,7 +563,7 @@
         </div>
       </div>
 
-      <!-- Facebook(公式ページプラグイン) -->
+      <!-- Facebook -->
       <div class="sns-col">
         <h3><span class="ic">📘</span> Facebook 最新情報</h3>
         <div class="fb-page"
@@ -574,48 +588,25 @@
   </div>
 </section>
 
-<!-- ⑩ 申込 -->
+<!-- ⑩ エントリー(受付終了) -->
 <section class="apply" id="apply">
   <div class="container">
     <h2>エントリー</h2>
-    <p class="sub">受付は終了いたしました。</p>
-    <div class="apply-grid">
-
-      <!-- 町外の方 -->
-      <div class="apply-card">
-        <h3>🏃 町外にお住まいの方</h3>
-        <p class="lead">下記いずれかのエントリーサイトからお申し込みください。</p>
-        <a class="apply-btn" href="https://moshicom.com/147881" target="_blank" rel="noopener">
-          e-moshicom で申し込む
-        </a>
-        <a class="apply-btn" href="https://www.sportsentry.ne.jp/event/t/106019" target="_blank" rel="noopener">
-          スポーツエントリー で申し込む
-        </a>
-        <p class="apply-note">※ どちらか一方のサイトからお申し込みください。</p>
+    <p class="sub">受付は終了いたしました</p>
+    <div class="closed-card">
+      <div class="ic">🙇</div>
+      <p class="thanks">たくさんのお申し込みをいただき、<br>ありがとうございました。</p>
+      <p class="lead">
+        第4回大会のエントリー受付は終了いたしました。<br>
+        当日は、紅葉の上砂川町で皆さまをお待ちしております。
+      </p>
+      <div class="closed-info">
+        <p>📍 <strong>お問い合わせ</strong><br>
+        上砂川町役場 企画課（☎ 0125-62-2223）</p>
+        <p>📢 <strong>当日のご案内</strong><br>
+        受付は 7:45～8:30、会場は上砂川岳温泉パンケの湯です。<br>
+        最新情報は公式SNSでお知らせします。</p>
       </div>
-
-      <!-- 町内の方 -->
-      <div class="apply-card">
-        <h3>🏠 上砂川町にお住まいの方</h3>
-        <p class="lead">下記いずれかの方法でお申し込みいただけます。</p>
-
-        <!-- LINE申込(ボタン＋QRを横並び) -->
-        <div class="line-apply">
-          <div class="line-left">
-            <a class="apply-btn line" href="https://liff.line.me/1657935502-X4my9R49?page=survey_launcher&channel_id=1656013847&liff_id=1657935502-X4my9R49&survey_id=a0OIh000000TOAx" target="_blank" rel="noopener">
-              公式LINEで申し込む(スマホのみ)
-            </a>
-            <p class="line-note">📱 右のQRコードからもアクセスできます</p>
-          </div>
-          <img class="qr" src="images/line-qr.png" alt="上砂川町公式LINE申込フォームQRコード">
-        </div>
-
-        <div class="apply-info">
-          <p>📍 <strong>窓口・電話</strong>：上砂川町役場企画課(☎0125-62-2223)</p>
-        </div>
-        <p class="apply-note">※ LINE申込フォームはスマートフォンからのみご利用いただけます。</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -648,13 +639,13 @@
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
       e.preventDefault();
-      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
     });
   });
 
   /* === カウントダウン（自動切替） === */
   (function(){
-    const OPEN_DATE  = new Date("2026-07-01T00:00:00+09:00"); // エントリー開始
     const EVENT_DATE = new Date("2026-10-10T09:00:00+09:00"); // 大会スタート
     const EVENT_END  = new Date("2026-10-10T17:00:00+09:00"); // 大会終了
 
@@ -667,28 +658,22 @@
 
     function render(){
       const now = new Date();
-      let target, text, isOpen=false, special=null;
+      let target, text, special=null;
 
-      if(now < OPEN_DATE){
-        target = OPEN_DATE;
-        text = "エントリー開始まで";
-      }else if(now < EVENT_DATE){
+      if(now < EVENT_DATE){
         target = EVENT_DATE;
         text = "大会当日まで";
-        isOpen = true;
       }else if(now < EVENT_END){
-        special = '<div class="cd-finish">🏃 ただいま開催中！</div>'; // 9:00〜17:00
+        special = '<div class="cd-finish">🏃 ただいま開催中！</div>';
       }else{
-        special = '<div class="cd-finish">🍁 開催しました。ありがとうございました 🍁</div>'; // 17:00〜
+        special = '<div class="cd-finish">🍁 開催しました。ありがとうございました 🍁</div>';
       }
 
       label.textContent = text || "";
-      label.classList.toggle("open", isOpen);
 
       if(special){
         timer.innerHTML = special;
         label.style.display = "none";
-        // 「開催中」は17:00で「ありがとう」に切り替えるため、終了後のみ停止
         return now >= EVENT_END;
       }
 
@@ -720,15 +705,14 @@
       if(now < reveal){
         card.classList.add("locked"); // 未公開 → ぼかし
       }
-      // 公開済みは locked を付けない(=くっきり表示)
     });
 
-        // お知らせバナー：公開後7日以内のお知らせがあれば表示
+    // お知らせバナー：公開後7日以内のお知らせがあれば表示
     const reveals = [
       {date:new Date("2026-07-10T00:00:00+09:00"), msg:'🍁 第3・第4エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
       {date:new Date("2026-07-17T00:00:00+09:00"), msg:'🍁 第5・第6エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
       {date:new Date("2026-07-24T00:00:00+09:00"), msg:'🍁 第7・第8エイドのグルメを公開しました！ <a href="#aid">チェックする →</a>'},
-      {date:new Date("2026-08-18T00:00:00+09:00"), msg:'👕 記念Tシャツのデザインが完成しました！ <a href="#tshirt">デザインを見る →</a>'},
+      {date:new Date("2026-09-17T00:00:00+09:00"), msg:'🗺️ 3コースのコースマップを公開しました！ <a href="#course">チェックする →</a>'},
     ];
     const bar = document.getElementById("noticeBar");
     if(bar){
@@ -742,7 +726,6 @@
         bar.style.display = "block";
       }
     }
-
   })();
 
 </script>
