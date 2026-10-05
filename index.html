@@ -304,6 +304,20 @@
       padding:22px 18px;
     }
   }
+
+    /* ステージ出演者の紹介文 */
+  .performer-info{
+    display:flex;
+    flex-direction:column;
+    line-height:1.5;
+  }
+  .performer-intro{
+    margin-top:3px;
+    color:#777;
+    font-size:.82rem;
+    font-weight:normal;
+  }
+
   
   /* 特典 */
   .perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -639,42 +653,66 @@
         <h3>🎤 ステージイベント</h3>
 
         <div class="stage-parts">
-          <div class="stage-part">
-            <h4>第1部</h4>
-            <ul class="event-schedule">
-              <li>
-                <span class="event-time">11:00～</span>
-                <span class="event-name">潤子&amp;浜崎斉</span>
-              </li>
-              <li>
-                <span class="event-time">11:20～</span>
-                <span class="event-name">山名 健吾</span>
-              </li>
-              <li>
-                <span class="event-time">11:40～</span>
-                <span class="event-name">CHIZ</span>
-              </li>
-              <li>
-                <span class="event-time">12:00～</span>
-                <span class="event-name">WA-YA</span>
-              </li>
-            </ul>
-          </div>
 
-          <div class="stage-part">
-            <h4>第2部</h4>
-            <ul class="event-schedule">
-              <li>
-                <span class="event-time">14:00～</span>
-                <span class="event-name">Poronociw</span>
-              </li>
-              <li>
-                <span class="event-time">14:30～</span>
-                <span class="event-name">オトノタネ</span>
-              </li>
-            </ul>
-          </div>
+      <!-- 第1部 -->
+        <div class="stage-part">
+          <h4>第1部</h4>
+          <ul class="event-schedule">
+            <li>
+              <span class="event-time">11:00～</span>
+              <span class="performer-info">
+              <span class="event-name">潤子&amp;浜崎斉</span>
+              <span class="performer-intro">あたたかな夫婦デュオ</span>
+              </span>
+            </li>
+            <li>
+              <span class="event-time">11:20～</span>
+              <span class="performer-info">
+              <span class="event-name">山名 健吾</span>
+              <span class="performer-intro">歌とトークで盛り上げます</span>
+              </span>
+            </li>
+            <li>
+              <span class="event-time">11:40～</span>
+              <span class="performer-info">
+                <span class="event-name">CHIZ</span>
+                <span class="performer-intro">パワフルな歌声で届ける応援歌！</span>
+              </span>
+            </li>
+            <li>
+              <span class="event-time">12:00～</span>
+              <span class="performer-info">
+                <span class="event-name">WA-YA</span>
+                <span class="performer-intro">唯一無二のダンスパフォーマンス</span>
+            </span>
+            </li>
+          </ul>
         </div>
+
+  <!-- 第2部 -->
+  <div class="stage-part">
+    <h4>第2部</h4>
+    <ul class="event-schedule">
+      <li>
+        <span class="event-time">14:00～</span>
+        <span class="performer-info">
+          <span class="event-name">Poronociw</span>
+          <span class="performer-intro">札幌発！さわやかなギターデュオ</span>
+        </span>
+      </li>
+      <li>
+        <span class="event-time">14:30～</span>
+        <span class="performer-info">
+          <span class="event-name">オトノタネ</span>
+          <span class="performer-intro">話題の道産子中高生ジャズバンド</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+
       </div>
 
       <!-- 抽選交流会 -->
