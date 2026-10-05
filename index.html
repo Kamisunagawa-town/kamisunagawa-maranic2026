@@ -177,6 +177,134 @@
   .guest h3{color:var(--gold);font-size:1.3rem;}
   .guest .role{font-size:.9rem;color:#ddd;margin-top:8px;}
 
+    /* 会場イベント */
+  .venue-events{
+    background:#fff;
+  }
+  .event-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  .event-card{
+    background:var(--cream);
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 4px 14px rgba(0,0,0,.06);
+    border-top:5px solid var(--orange);
+  }
+  .event-card.stage{
+    grid-column:1 / -1;
+    border-top-color:var(--autumn);
+  }
+  .event-card.lottery{
+    border-top-color:var(--gold);
+  }
+  .event-card.booth{
+    border-top-color:var(--green);
+  }
+  .event-card.kitchen{
+    border-top-color:var(--orange);
+  }
+  .event-card h3{
+    color:var(--autumn);
+    font-size:1.3rem;
+    margin-bottom:18px;
+    text-align:center;
+  }
+  .stage-parts{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  .stage-part{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+  }
+  .stage-part h4{
+    color:var(--orange);
+    text-align:center;
+    margin-bottom:12px;
+    font-size:1.1rem;
+  }
+  .event-schedule{
+    list-style:none;
+  }
+  .event-schedule li{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:10px 4px;
+    border-bottom:1px solid #eadfce;
+  }
+  .event-schedule li:last-child{
+    border-bottom:0;
+  }
+  .event-time{
+    min-width:76px;
+    color:var(--autumn);
+    font-weight:bold;
+    font-variant-numeric:tabular-nums;
+  }
+  .event-name{
+    font-weight:bold;
+  }
+  .lottery-list{
+    list-style:none;
+    background:#fff;
+    border-radius:12px;
+    padding:8px 18px;
+  }
+  .lottery-list li{
+    display:flex;
+    gap:14px;
+    padding:12px 0;
+    border-bottom:1px solid #eadfce;
+  }
+  .lottery-list li:last-child{
+    border-bottom:0;
+  }
+  .event-card .description{
+    text-align:center;
+    line-height:1.8;
+  }
+  .food-list{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+  .food-item{
+    display:inline-block;
+    background:#fff;
+    color:var(--dark);
+    padding:7px 13px;
+    border-radius:20px;
+    font-size:.9rem;
+    font-weight:bold;
+  }
+  .event-note{
+    text-align:center;
+    margin-top:24px;
+    color:#666;
+    font-size:.85rem;
+  }
+
+  @media(max-width:768px){
+    .event-grid,
+    .stage-parts{
+      grid-template-columns:1fr;
+    }
+    .event-card.stage{
+      grid-column:auto;
+    }
+    .event-card{
+      padding:22px 18px;
+    }
+  }
+  
   /* 特典 */
   .perks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .perk{background:#fff;border-radius:16px;overflow:hidden;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);border-top:5px solid var(--gold);}
@@ -498,6 +626,103 @@
   </div>
 </section>
 
+<!-- ⑦ 会場イベント -->
+<section class="venue-events" id="venue-events">
+  <div class="container">
+    <h2>会場イベント</h2>
+    <p class="sub">走ったあとも楽しめる、当日限定のお楽しみ！</p>
+
+    <div class="event-grid">
+
+      <!-- ステージイベント -->
+      <div class="event-card stage">
+        <h3>🎤 ステージイベント</h3>
+
+        <div class="stage-parts">
+          <div class="stage-part">
+            <h4>第1部</h4>
+            <ul class="event-schedule">
+              <li>
+                <span class="event-time">11:00～</span>
+                <span class="event-name">潤子&amp;浜崎斉</span>
+              </li>
+              <li>
+                <span class="event-time">11:20～</span>
+                <span class="event-name">山名 健吾</span>
+              </li>
+              <li>
+                <span class="event-time">11:40～</span>
+                <span class="event-name">CHIZ</span>
+              </li>
+              <li>
+                <span class="event-time">12:00～</span>
+                <span class="event-name">WA-YA</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="stage-part">
+            <h4>第2部</h4>
+            <ul class="event-schedule">
+              <li>
+                <span class="event-time">14:00～</span>
+                <span class="event-name">Poronociw</span>
+              </li>
+              <li>
+                <span class="event-time">14:30～</span>
+                <span class="event-name">オトノタネ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 抽選交流会 -->
+      <div class="event-card lottery">
+        <h3>🎁 かみすながわマラニック抽選交流会</h3>
+        <ul class="lottery-list">
+          <li>
+            <span class="event-time">13:00～</span>
+            <span class="event-name">ショート・ファミリー</span>
+          </li>
+          <li>
+            <span class="event-time">15:00～</span>
+            <span class="event-name">ロング</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 協賛企業ブース -->
+      <div class="event-card booth">
+        <h3>🏢 協賛企業ブース</h3>
+        <p class="description">
+          ブースにて、本大会の協賛企業による催しを行います。
+          ぜひお立ち寄りください。
+        </p>
+      </div>
+
+      <!-- キッチンカー -->
+      <div class="event-card kitchen">
+        <h3>🚚 キッチンカー</h3>
+        <p class="description">
+          おいしいグルメを楽しめるキッチンカーが出店します！
+        </p>
+        <div class="food-list">
+          <span class="food-item">🍗 チキン南蛮</span>
+          <span class="food-item">🥙 本格ケバブ</span>
+          <span class="food-item">🍓 クレープ</span>
+          <span class="food-item">🍎 林檎パイ</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="event-note">
+      ※ 出演時間やイベント内容、出店内容は変更となる場合があります。
+    </p>
+  </div>
+</section>
+  
 <!-- ⑦ 特典 -->
 <section class="container" id="tshirt">
   <h2>参加者特典</h2>
