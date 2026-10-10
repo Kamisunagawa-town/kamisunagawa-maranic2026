@@ -1155,8 +1155,21 @@
       }else if(now < EVENT_END){
         special = '<div class="cd-finish">🏃 ただいま開催中！</div>';
       }else{
-        special = '<div class="cd-finish">🍁 開催しました。ありがとうございました 🍁</div>';
-      }
+  special = `
+    <div class="cd-finish">
+      <div class="cd-finish-title">
+        🍁 開催しました。ありがとうございました 🍁
+      </div>
+      <p class="cd-finish-message">
+        ぜひマラニックの感想を<br class="sp-only">
+        ハッシュタグ
+        <strong>#かみすながわぐるっと紅葉マラニック</strong>
+        を付けてSNSにご投稿ください！
+      </p>
+    </div>
+  `;
+}
+
 
       label.textContent = text || "";
 
